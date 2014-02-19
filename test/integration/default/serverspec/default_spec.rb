@@ -3,7 +3,12 @@ require 'spec_helper'
 
 # Write integration tests with Serverspec - http://serverspec.org/
 describe 'proftpd::default' do
-  it 'does something' do
-    pending 'Replace this with meaningful tests'
+  describe service('proftpd') do
+    it { should be_enabled }
+    it { should be_running }
+  end
+
+  describe port(21) do
+    it { should be_listening }
   end
 end

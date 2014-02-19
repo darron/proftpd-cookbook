@@ -18,4 +18,8 @@
 # limitations under the License.
 #
 
-# Install/configure something here
+package 'proftpd'
+
+service 'proftpd' do
+  action [:enable, :start]
+end
