@@ -23,3 +23,11 @@ package 'proftpd'
 service 'proftpd' do
   action [:enable, :start]
 end
+
+cookbook_file '/etc/proftpd/proftpd.conf' do
+  action :create
+  user 'root'
+  group 'root'
+  mode 0644
+  notifies :restart, 'service[proftpd]'
+end
